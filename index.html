@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+  <title>ITRAN Store – Mode Premium & Authentique</title>
+  
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+   
+    :root {
+      --gold: #d4af37;
+      --gold-dark: #b8962e;
+      --gold-light: #f4e8c1;
+      --black: #0a0a0a;
+      --dark-gray: #1a1a1a;
+      --light-gray: #f5f5f5;
+      --white: #ffffff;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #1da851;
+      --red: #e74c3c;
+      --green: #2ecc71;
+      --blue: #3498db;
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(212,175,55,0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(212,175,55,0); }
+      100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+   
+    .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    @media (max-width: 768px) {
+      .section-title { font-size: 32px; }
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      z-index: 1000;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+      transition: var(--transition);
+    }
+    header.scrolled { padding: 12px 60px; background: rgba(0,0,0,0.98); }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+    }
+    .logo-img { height: 48px; filter: drop-shadow(0 0 8px rgba(212,175,55,0.3)); }
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      position: relative;
+      padding: 5px 0;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    nav a:hover { color: var(--gold); }
+    nav a:hover::after { width: 100%; }
+    .nav-icons { display: flex; gap: 20px; margin-left: 15px; }
+    .nav-icon {
+      color: var(--white);
+      font-size: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .nav-icon:hover { color: var(--gold); transform: translateY(-2px); }
+    .mobile-menu-btn { display: none; font-size: 26px; cursor: pointer; }
+
+    
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), 
+                  url('img/logo.jpg') center/cover fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-content { max-width: 1000px; padding: 0 20px; }
+    .hero h1 {
+      font-size: 80px;
+      font-weight: 800;
+      background: linear-gradient(45deg, var(--gold), #f1c40f, var(--gold-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 300;
+    }
+    .hero-btn {
+      background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+      color: var(--black);
+      padding: 16px 48px;
+      border-radius: 60px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 15px 35px rgba(212,175,55,0.3);
+      transition: var(--transition);
+      animation: pulse 2.5s infinite;
+    }
+    .hero-btn:hover { transform: translateY(-6px); box-shadow: 0 20px 45px rgba(212,175,55,0.5); }
+
+    
+    .story-full {
+      padding: 120px 60px;
+      background: radial-gradient(circle at 10% 30%, var(--dark-gray), var(--black));
+    }
+    .story-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .story-image img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      border: 2px solid rgba(212,175,55,0.3);
+      transition: var(--transition);
+    }
+    .story-image img:hover { transform: scale(1.02); border-color: var(--gold); }
+    .story-text h2 {
+      font-size: 48px;
+      color: var(--gold);
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .story-text h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100px;
+      height: 4px;
+      background: var(--gold);
+    }
+    .story-text p {
+      font-size: 18px;
+      line-height: 1.9;
+      color: var(--light-gray);
+      margin-bottom: 25px;
+      font-weight: 300;
+    }
+    .story-highlight {
+      background: rgba(212,175,55,0.08);
+      padding: 25px;
+      border-left: 5px solid var(--gold);
+      border-radius: 0 20px 20px 0;
+      margin-top: 30px;
+    }
+
+ 
+    .filter-section {
+      padding: 40px 60px 0;
+      text-align: center;
+    }
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .products-section {
+      padding: 60px 60px 120px;
+      background: var(--black);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .product-card {
+      background: var(--dark-gray);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      position: relative;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 60px rgba(212,175,55,0.2);
+    }
+    .product-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--gold);
+      color: var(--black);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 2;
+    }
+    .product-image {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+    .product-card:hover .product-image { transform: scale(1.07); }
+    .product-info {
+      padding: 25px;
+      text-align: center;
+    }
+    .product-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .product-price {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .btn {
+      padding: 12px 22px;
+      border-radius: 40px;
+      border: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(212,175,55,0.4);
+    }
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: var(--white);
+    }
+    .btn-whatsapp:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-3px);
+    }
+
+   
+    .product-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.4s;
+    }
+    .product-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: var(--dark-gray);
+      max-width: 1000px;
+      width: 90%;
+      border-radius: 30px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      position: relative;
+      transform: scale(0.8);
+      transition: 0.4s;
+    }
+    .product-modal.active .modal-content { transform: scale(1); }
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .modal-image img {
+      width: 100%;
+      border-radius: 20px;
+    }
+    .modal-details h2 {
+      font-size: 32px;
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+    .modal-price {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .modal-description {
+      margin: 25px 0;
+      line-height: 1.8;
+      color: #ddd;
+    }
+    .size-guide {
+      margin: 30px 0;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 16px;
+    }
+    .size-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .size-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #555;
+      padding: 10px 18px;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+    .size-btn.selected {
+      background: var(--gold);
+      color: black;
+      border-color: var(--gold);
+    }
+
+    .about-page {
+      padding: 120px 60px;
+      background: linear-gradient(145deg, #0c0c0c, #050505);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .about-card {
+      background: rgba(212,175,55,0.05);
+      border-radius: 30px;
+      padding: 40px;
+      border: 1px solid rgba(212,175,55,0.2);
+    }
+    .about-card h3 {
+      font-size: 28px;
+      color: var(--gold);
+      margin-bottom: 25px;
+    }
+
+    
+    .reviews-section {
+      padding: 100px 60px;
+      background: var(--dark-gray);
+    }
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 30px;
+      border-bottom: 4px solid var(--gold);
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .review-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: black;
+    }
+    .review-stars { color: var(--gold); margin-top: 10px; }
+
+   
+    .faq-section {
+      padding: 100px 60px;
+      background: var(--black);
+    }
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: rgba(255,255,255,0.02);
+      margin-bottom: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    .faq-question {
+      padding: 25px;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    .faq-answer {
+      padding: 0 25px 25px;
+      color: #bbb;
+      line-height: 1.7;
+      display: none;
+    }
+    .faq-item.active .faq-answer { display: block; }
+
+   
+    .policies-section {
+      padding: 100px 60px;
+      background: #0e0e0e;
+    }
+    .policies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    .policy-card {
+      background: rgba(212,175,55,0.03);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px dashed var(--gold);
+    }
+
+    
+    .newsletter {
+      padding: 80px 60px;
+      background: linear-gradient(45deg, var(--gold-dark), var(--gold));
+      color: var(--black);
+      text-align: center;
+    }
+    .newsletter h2 { font-size: 36px; margin-bottom: 20px; }
+    .newsletter-input {
+      display: flex;
+      max-width: 500px;
+      margin: 30px auto 0;
+    }
+    .newsletter-input input {
+      flex: 1;
+      padding: 16px;
+      border: none;
+      border-radius: 50px 0 0 50px;
+      font-size: 16px;
+    }
+    .newsletter-input button {
+      background: var(--black);
+      color: var(--gold);
+      border: none;
+      padding: 0 30px;
+      border-radius: 0 50px 50px 0;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+   
+    .contact-section {
+      padding: 120px 60px;
+      background: var(--black);
+    }
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    .contact-form {
+      background: rgba(255,255,255,0.03);
+      padding: 40px;
+      border-radius: 24px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid transparent;
+      border-radius: 12px;
+      color: white;
+      margin-bottom: 20px;
+    }
+    .form-control:focus {
+      border-color: var(--gold);
+      outline: none;
+    }
+
+   
+    .cart-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1999;
+      opacity: 0; visibility: hidden;
+      transition: 0.4s;
+    }
+    .cart-overlay.active { opacity: 1; visibility: visible; }
+    .cart {
+      position: fixed;
+      right: 0; top: 0;
+      width: 420px;
+      height: 100%;
+      background: var(--dark-gray);
+      padding: 30px;
+      transform: translateX(100%);
+      transition: 0.4s;
+      z-index: 2000;
+      overflow-y: auto;
+    }
+    .cart.active { transform: translateX(0); }
+    .whatsapp-float, .cart-btn {
+      position: fixed;
+      right: 30px;
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: none;
+      z-index: 1001;
+    }
+    .whatsapp-float {
+      bottom: 120px;
+      background: var(--whatsapp);
+      color: white;
+    }
+    .cart-btn {
+      bottom: 30px;
+      background: var(--gold);
+      color: black;
+    }
+    .cart-count {
+      position: absolute;
+      top: -5px; right: -5px;
+      background: var(--red);
+      color: white;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+   
+    footer {
+      background: #050505;
+      padding: 70px 60px 30px;
+      border-top: 1px solid rgba(212,175,55,0.2);
+    }
+    .footer-content {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+    }
+
+    
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 56px; }
+      .story-container, .about-grid, .modal-content { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      header { padding: 15px 25px; }
+      nav {
+        position: fixed;
+        top: 80px; left: 0;
+        width: 100%;
+        background: var(--dark-gray);
+        flex-direction: column;
+        padding: 30px;
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s;
+      }
+      nav.active { transform: translateY(0); opacity: 1; visibility: visible; }
+      .mobile-menu-btn { display: block; }
+      .hero h1 { font-size: 42px; }
+      .cart { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+
+<header id="navbar">
+  <div class="logo-container" onclick="scrollToTop()">
+    <img src="img/logo.jpg" alt="ITRAN" class="logo-img" onerror="this.src='https://via.placeholder.com/48x48?text=ITRAN'">
+    <div class="logo">ITRAN</div>
+  </div>
+  <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+  <nav id="mainNav">
+    <a href="#home">Accueil</a>
+    <a href="#about-page">Qui sommes-nous</a>
+    <a href="#products">Produits</a>
+    <a href="#reviews">Avis</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <div class="nav-icons">
+      <i class="fas fa-search nav-icon" onclick="openSearch()"></i>
+      <i class="fas fa-user nav-icon" onclick="openAccount()"></i>
+      <i class="fas fa-globe nav-icon" onclick="switchLanguage()"></i>
+    </div>
+  </nav>
+</header>
+
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1 class="animate__animated animate__fadeInDown">ITRAN STORE</h1>
+    <p class="animate__animated animate__fadeInUp">Authentique, Premium, Intemporel – Du désert vers le monde 🌍</p>
+    <a href="#products" class="hero-btn animate__animated animate__fadeInUp">Explorer la collection</a>
+  </div>
+</section>
+
+
+<section class="about-page" id="about-page">
+  <h2 class="section-title">Qui sommes-nous ?</h2>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>🌵 Notre ADN</h3>
+      <p style="font-size: 18px; line-height: 1.8;">ITRAN, c’est l’histoire d’un voyage. Né dans le silence du désert marocain, guidé par les étoiles et la force du chameau, symbole de résilience. Nous ne vendons pas seulement des vêtements : nous partageons une identité, une fierté, une façon de porter l’héritage nomade avec élégance.</p>
+      <p style="margin-top: 25px; font-style: italic; color: var(--gold);">"Habiller l'âme avant le corps."</p>
+    </div>
+    <div class="about-card">
+      <h3>🏜️ Notre mission</h3>
+      <p style="font-size: 18px; line-height: 1.8;">Valoriser l’artisanat et la culture nord-africaine à travers des pièces modernes, minimalistes et luxueuses. Chaque produit ITRAN raconte une histoire : celle d’un peuple, d’un climat, d’un savoir-faire. Nous collaborons avec des ateliers locaux au Maroc pour une mode éthique et responsable.</p>
+      <p style="margin-top: 25px;"><i class="fas fa-crown" style="color: var(--gold);"></i>  100% fait avec passion</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="story-full" id="story">
+  <div class="story-container">
+    <div class="story-image">
+      <img src="img/itran.png" alt="Histoire ITRAN" onerror="this.src='https://via.placeholder.com/600x800?text=Caravane+ITRAN'">
+    </div>
+    <div class="story-text">
+      <h2>Notre histoire</h2>
+      <p>Au cœur du désert, là où le silence raconte des histoires que seuls les esprits attentifs peuvent entendre… est née l’idée de ITRAN. Ce n’est pas seulement un nom, c’est un voyage. Un voyage inspiré par le nomadisme, par les pas des ancêtres qui suivaient les étoiles.</p>
+      <p>Le chameau dans le logo symbolise la patience, la force et l’endurance. La personne qui le guide représente l’humain ambitieux, celui qui connaît sa route même au milieu de l’obscurité. Quant à l’étoile lumineuse, elle est la boussole… la lumière qui guide les voyageurs.</p>
+      <div class="story-highlight">
+        <p style="font-size: 20px; margin: 0; font-weight: 600;">✨ ITRAN, ce n’est pas une simple marque – c’est une mémoire qui avance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="filter-section">
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-filter="all">Tous les produits</button>
+    <button class="filter-btn" data-filter="homme">Homme</button>
+    <button class="filter-btn" data-filter="femme">Femme</button>
+    
+  </div>
+</section>
+
+
+<section class="products-section" id="products">
+  <div class="products-grid" id="productsGrid">
+   
+    <div class="product-card" data-category="homme" onclick="openProductModal('tshirt-premium')">
+      <div class="product-badge">Nouveau</div>
+      <img src="img/mockup.jpg.jpeg" alt="T-Shirt Premium" class="product-image" onerror="this.src='https://via.placeholder.com/400x500?text=T-Shirt+ITRAN'">
+      <div class="product-info">
+        <h3 class="product-title">T‑Shirt Premium</h3>
+        <div class="product-price">25 €</div>
+        <div class="product-actions" onclick="event.stopPropagation()">
+          <button class="btn btn-primary" onclick="addToCart('T‑Shirt Premium', 25, this)"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+          <button class="btn btn-whatsapp" onclick="orderOnWhatsApp('T‑Shirt Premium', 25)"><i class="fab fa-whatsapp"></i> Commander</button>
+        </div>
+      </div>
+    </div>
+   
+    <div class="product-card" data-category="homme" onclick="openProductModal('capitcho')">
+      <div class="product-badge">Best Seller</div>
+      <img src="img/Itran Post.jpg.jpeg" alt="Capitcho Luxury" class="product-image" onerror="this.src='https://via.placeholder.com/400x500?text=Capitcho+Luxury'">
+      <div class="product-info">
+        <h3 class="product-title">Capitcho Luxury</h3>
+        <div class="product-price">60 €</div>
+        <div class="product-actions" onclick="event.stopPropagation()">
+          <button class="btn btn-primary" onclick="addToCart('Capitcho Luxury', 60, this)"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+          <button class="btn btn-whatsapp" onclick="orderOnWhatsApp('Capitcho Luxury', 60)"><i class="fab fa-whatsapp"></i> Commander</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="product-card" data-category="femme" onclick="openProductModal('pantalon-elegant')">
+      <img src="img/image.png" alt="Pantalon Élégant" class="product-image" onerror="this.src='https://via.placeholder.com/400x500?text=Pantalon+Élégant'">
+      <div class="product-info">
+        <h3 class="product-title">Pantalon Élégant</h3>
+        <div class="product-price">45 €</div>
+        <div class="product-actions" onclick="event.stopPropagation()">
+          <button class="btn btn-primary" onclick="addToCart('Pantalon Élégant', 45, this)"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+          <button class="btn btn-whatsapp" onclick="orderOnWhatsApp('Pantalon Élégant', 45)"><i class="fab fa-whatsapp"></i> Commander</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="product-card" data-category="accessoires" onclick="openProductModal('casquette')">
+      <div class="product-badge">Édition Limitée</div>
+      <img src="img/mockp nour s.jpg" alt="ITRAN" class="product-image" onerror="this.src='https://via.placeholder.com/400x500?text=Casquette+ITRAN'">
+      <div class="product-info">
+        <h3 class="product-title"> ITRAN</h3>
+        <div class="product-price">20 €</div>
+        <div class="product-actions" onclick="event.stopPropagation()">
+          <button class="btn btn-primary" onclick="addToCart('Casquette ITRAN', 20, this)"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+          <button class="btn btn-whatsapp" onclick="orderOnWhatsApp('Casquette ITRAN', 20)"><i class="fab fa-whatsapp"></i> Commander</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="product-card" data-category="homme" onclick="openProductModal('sweat')">
+      <div class="product-badge">Nouvelle collection</div>
+      <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400" alt="Sweat ITRAN" class="product-image">
+      <div class="product-info">
+        <h3 class="product-title">Sweat ITRAN</h3>
+        <div class="product-price">55 €</div>
+        <div class="product-actions" onclick="event.stopPropagation()">
+          <button class="btn btn-primary" onclick="addToCart('Sweat ITRAN', 55, this)"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+          <button class="btn btn-whatsapp" onclick="orderOnWhatsApp('Sweat ITRAN', 55)"><i class="fab fa-whatsapp"></i> Commander</button>
+        </div>
+      </div>
+    </div>
+   
+    <div class="product-card" data-category="femme" onclick="openProductModal('hoodie')">
+      <div class="product-badge">Premium</div>
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400" alt="Hoodie ITRAN" class="product-image">
+      <div class="product-info">
+        <h3 class="product-title">Hoodie Signature</h3>
+        <div class="product-price">75 €</div>
+        <div class="product-actions" onclick="event.stopPropagation()">
+          <button class="btn btn-primary" onclick="addToCart('Hoodie Signature', 75, this)"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+          <button class="btn btn-whatsapp" onclick="orderOnWhatsApp('Hoodie Signature', 75)"><i class="fab fa-whatsapp"></i> Commander</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="product-modal" id="productModal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeProductModal()">&times;</button>
+    <div class="modal-image">
+      <img id="modalProductImage" src="" alt="Product">
+    </div>
+    <div class="modal-details">
+      <h2 id="modalProductTitle">T-Shirt Premium</h2>
+      <div class="modal-price" id="modalProductPrice">25 €</div>
+      <div class="modal-description" id="modalProductDesc">
+        T-shirt en coton biologique, coupe oversize, finitions dorées. Fabriqué au Maroc.
+      </div>
+     
+      <div class="size-guide">
+        <h4 style="color: var(--gold); margin-bottom: 15px;"><i class="fas fa-ruler"></i> Guide des tailles</h4>
+        <div class="size-buttons" id="sizeButtons">
+          <button class="size-btn" data-size="S">S</button>
+          <button class="size-btn" data-size="M">M</button>
+          <button class="size-btn" data-size="L">L</button>
+          <button class="size-btn" data-size="XL">XL</button>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="addToCartFromModal()">
+        <i class="fas fa-shopping-cart"></i> Ajouter au panier
+      </button>
+    </div>
+  </div>
+</div>
+
+<section class="reviews-section" id="reviews">
+  <h2 class="section-title">Ce qu'ils disent</h2>
+  <div class="reviews-container">
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">A</div>
+        <div>
+          <h4>Amine B.</h4>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <p>"La qualité est incroyable, le tissu est épais et le design est unique. Je recommande vivement !"</p>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">K</div>
+        <div>
+          <h4>Khawla T.</h4>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+      <p>"Le hoodie est magnifique, confortable et la livraison rapide. Fierté marocaine 🇲🇦"</p>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">Y</div>
+        <div>
+          <h4>Youssef M.</h4>
+          <div class="review-stars">★★★★☆</div>
+        </div>
+      </div>
+      <p>"Très belle marque, j’adore l’histoire derrière. Petit bémol sur la taille un peu grand."</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="faq-section" id="faq">
+  <h2 class="section-title">Questions fréquentes</h2>
+  <div class="faq-container">
+    <div class="faq-item active">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Quels sont les délais de livraison ?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Livraison sous 2-4 jours ouvrés au Maroc, 5-8 jours en Europe. Colissimo suivi.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Puis-je retourner un article ?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Oui, retour sous 48H, produit non porté, étiquettes intactes. Remboursement sous 48h.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        <span>Les produits sont-ils fabriqués au Maroc ?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        100% conçu et fabriqué au Maroc, dans nos ateliers partenaires à Meknès et Casablanca.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="policies-section">
+  <h2 class="section-title">Nos engagements</h2>
+  <div class="policies-grid">
+    <div class="policy-card">
+      <i class="fas fa-truck" style="font-size: 40px; color: var(--gold); margin-bottom: 20px;"></i>
+      <h3 style="color: white;">Livraison express</h3>
+      <p style="color: #ccc;">Sous 48h au Maroc, offerte dès 100€ d'achat.</p>
+    </div>
+    <div class="policy-card">
+      <i class="fas fa-undo-alt" style="font-size: 40px; color: var(--gold); margin-bottom: 20px;"></i>
+      <h3 style="color: white;">Retours simplifiés</h3>
+      <p style="color: #ccc;">14 jours pour changer d'avis, remboursement rapide.</p>
+    </div>
+    <div class="policy-card">
+      <i class="fas fa-shield-alt" style="font-size: 40px; color: var(--gold); margin-bottom: 20px;"></i>
+      <h3 style="color: white;">Paiement sécurisé</h3>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="newsletter">
+  <h2>10% de réduction</h2>
+  <p style="font-size: 18px; margin-bottom: 20px;">Inscrivez-vous et recevez votre code promo immédiatement</p>
+  <div class="newsletter-input">
+    <input type="email" placeholder="Votre adresse email" id="newsletterEmail">
+    <button onclick="subscribeNewsletter()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</section>
+
+
+<section class="contact-section" id="contact">
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Contact</h2>
+      <p style="font-size: 18px; margin-bottom: 40px;">Une question ? Notre équipe est là pour vous répondre sous 24h.</p>
+      <div style="margin-bottom: 20px;"><i class="fas fa-phone-alt" style="color: var(--gold); margin-right: 15px;"></i> +212 7 12 74 97 32</div>
+      <div style="margin-bottom: 20px;"><i class="fas fa-envelope" style="color: var(--gold); margin-right: 15px;"></i> itranproduct@gmail.com</div>
+      <div style="margin-bottom: 20px;"><i class="fas fa-map-marker-alt" style="color: var(--gold); margin-right: 15px;"></i> Goulmima / Meknès, Maroc</div>
+      <div class="social-links" style="display: flex; gap: 20px; margin-top: 30px;">
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <form id="contactForm">
+        <input type="text" class="form-control" placeholder="Nom complet" required>
+        <input type="email" class="form-control" placeholder="Email" required>
+        <textarea class="form-control" rows="5" placeholder="Votre message..."></textarea>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">Envoyer</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart" id="cart">
+  <div class="cart-header">
+    <h2>Votre panier</h2>
+    <button class="close-cart" onclick="closeCart()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total">Total: <span id="cartTotal">0 €</span></div>
+    <button class="btn btn-whatsapp" style="width: 100%;" onclick="checkoutCart()">Commander sur WhatsApp</button>
+  </div>
+</div>
+
+
+<button class="whatsapp-float" onclick="openWhatsApp()">
+  <i class="fab fa-whatsapp"></i>
+</button>
+<button class="cart-btn" onclick="toggleCart()">
+  <i class="fas fa-shopping-cart"></i>
+  <span class="cart-count" id="cartCount">0</span>
+</button>
+
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <h4 style="color: var(--gold); margin-bottom: 20px;">ITRAN</h4>
+      <p style="color: #aaa;">Mode nomade, esprit libre.</p>
+    </div>
+    <div>
+      <h4 style="color: white;">Liens</h4>
+      <ul class="footer-links">
+        <li><a href="#about-page">Qui sommes-nous</a></li>
+        <li><a href="#products">Produits</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#">Politique de retour</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color: white;">Contact</h4>
+      <ul class="footer-links">
+        <li><i class="fas fa-phone"></i> +212 7 12 74 97 32</li>
+        <li><i class="fas fa-envelope"></i> itranproduct@gmail.com</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom" style="text-align: center; margin-top: 60px; color: #666;">
+    © 2026 ITRAN STORE – Tous droits réservés. Maroc 🇲🇦
+  </div>
+</footer>
+
+
+<script>
+
+  let cart = [];
+  let selectedSize = null;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const saved = localStorage.getItem('itranCart');
+    if(saved) { cart = JSON.parse(saved); updateCart(); }
+
+   
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.dataset.filter;
+        document.querySelectorAll('.product-card').forEach(card => {
+          if(filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'block';
+          } else card.style.display = 'none';
+        });
+      });
+    });
+
+    
+    window.addEventListener('scroll', function() {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+  
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedSize = this.dataset.size;
+      });
+    });
+  });
+
+
+  function addToCart(name, price, btn) {
+    const item = cart.find(i => i.name === name);
+    if(item) item.quantity++;
+    else cart.push({ name, price, quantity: 1 });
+    updateCart();
+    localStorage.setItem('itranCart', JSON.stringify(cart));
+    showNotification(name + ' ajouté ✓');
+  }
+
+  function updateCart() {
+    const items = document.getElementById('cartItems');
+    const totalSpan = document.getElementById('cartTotal');
+    const countSpan = document.getElementById('cartCount');
+    if(!items) return;
+    items.innerHTML = '';
+    let total = 0, qty = 0;
+    cart.forEach((item,i) => {
+      total += item.price * item.quantity;
+      qty += item.quantity;
+      items.innerHTML += `<div class="cart-item">
+        <div><h4>${item.name}</h4><span>${item.price}€ x${item.quantity}</span></div>
+        <div><button onclick="updateQty(${i}, -1)">-</button> ${item.quantity} <button onclick="updateQty(${i}, 1)">+</button>
+        <button onclick="removeItem(${i})"><i class="fas fa-trash"></i></button></div>
+      </div>`;
+    });
+    totalSpan.innerText = total + ' €';
+    countSpan.innerText = qty;
+    if(cart.length===0) items.innerHTML = '<p style="color:#888; text-align:center;">Panier vide</p>';
+  }
+  function updateQty(i, d) { cart[i].quantity += d; if(cart[i].quantity<=0) cart.splice(i,1); updateCart(); localStorage.setItem('itranCart',JSON.stringify(cart)); }
+  function removeItem(i) { cart.splice(i,1); updateCart(); localStorage.setItem('itranCart',JSON.stringify(cart)); }
+  function toggleCart() { document.getElementById('cart').classList.toggle('active'); document.getElementById('cartOverlay').classList.toggle('active'); }
+  function closeCart() { document.getElementById('cart').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); }
+  function orderOnWhatsApp(p, price) { window.open(`https://wa.me/212712749732?text=Bonjour%20ITRAN%20!%20Je%20souhaite%20commander%20:*${p}*%20(${price}€)`, '_blank'); }
+  function openWhatsApp() { window.open('https://wa.me/212712749732?text=Bonjour%20ITRAN%20Store%20!', '_blank'); }
+  function checkoutCart() {
+    if(!cart.length) return showNotification('Panier vide');
+    let msg = 'Bonjour ITRAN, je souhaite commander :\n';
+    let total = 0;
+    cart.forEach(i => { msg += `- ${i.name} x${i.quantity} = ${i.price*i.quantity}€\n`; total += i.price*i.quantity; });
+    msg += `\nTotal: ${total}€`;
+    window.open(`https://wa.me/212712749732?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  
+  function openProductModal(productId) {
+    const modal = document.getElementById('productModal');
+    modal.classList.add('active');
+  
+    document.getElementById('modalProductTitle').innerText = 'T-Shirt Premium';
+    document.getElementById('modalProductPrice').innerText = '25 €';
+    selectedSize = null;
+    document.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('selected'));
+  }
+  function closeProductModal() { document.getElementById('productModal').classList.remove('active'); }
+  function addToCartFromModal() {
+    const title = document.getElementById('modalProductTitle').innerText;
+    const price = parseInt(document.getElementById('modalProductPrice').innerText);
+    addToCart(title, price, null);
+    closeProductModal();
+  }
+
+
+  function showNotification(msg) {
+    const div = document.createElement('div');
+    div.style.cssText = 'position:fixed; top:100px; right:20px; background:var(--gold); color:black; padding:15px 30px; border-radius:50px; font-weight:600; z-index:9999; box-shadow:0 10px 30px rgba(0,0,0,0.3);';
+    div.innerText = msg;
+    document.body.appendChild(div);
+    setTimeout(()=>div.remove(), 3000);
+  }
+
+  
+  function toggleFAQ(element) {
+    const item = element.closest('.faq-item');
+    item.classList.toggle('active');
+  }
+
+
+  function subscribeNewsletter() {
+    const email = document.getElementById('newsletterEmail').value;
+    if(email) showNotification('Merci ! Votre code promo vous a été envoyé.');
+    else alert('Entrez votre email');
+  }
+
+ 
+  function switchLanguage() {
+    showNotification('🌍 العربية / English / Français – bientôt disponible');
+  }
+
+ 
+  function toggleMobileMenu() { document.getElementById('mainNav').classList.toggle('active'); }
+  function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
+  function openSearch() { showNotification('Recherche bientôt active'); }
+  function openAccount() { showNotification('Espace client bientôt ouvert'); }
+
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const id = this.getAttribute('href');
+      if(id === '#') return;
+      document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
+
+
+<style>
+  .footer-links { list-style: none; }
+  .footer-links li, .footer-links a { color: #aaa; margin-bottom: 12px; text-decoration: none; }
+  .footer-links a:hover { color: var(--gold); }
+  .social-link { width: 45px; height: 45px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; }
+  .social-link:hover { background: var(--gold); color: black; }
+</style>
+
+</body>
+</html>
